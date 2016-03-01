@@ -1,6 +1,6 @@
 //bdd
-var palindromeTester = function(cheatingString, reversedString){
-  if(cheatingString === reversedString){
+var palindromeTester = function(inputString, reversedString){
+  if(inputString === reversedString){
     $("#yes").hide();
     $("#no").hide();
     $("#yes").show();
@@ -19,14 +19,12 @@ $("form#palindrome").submit(function(event){
 
   var inputWordArray = inputString.split("");
 
-  var cheatingString = inputWordArray.toString("");
-
 
   var cloneWordArray = inputWordArray.slice();
   var reversedWordArray = cloneWordArray.reverse();
-  var reversedString = reversedWordArray.toString();
+  var reversedString = reversedWordArray.join("");
 
-  palindromeTester(cheatingString, reversedString);
+  palindromeTester(inputString, reversedString);
 
 
   event.preventDefault();
