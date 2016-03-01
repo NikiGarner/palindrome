@@ -1,22 +1,34 @@
 //bdd
-var palindromeTester = function(inputWordArray, reversedWordArray){
-  if( inputWordArray === reversedWordArray){
-    alert "This is a palindrome!"
+var palindromeTester = function(cheatingString, reversedString){
+  if(cheatingString === reversedString){
+    $("#yes").hide();
+    $("#no").hide();
+    $("#yes").show();
   } else{
-    alert "This is not a palindrome!"
+    $("#yes").hide();
+    $("#no").hide();
+    $("#no").show();
   }
+};
 
-});
 
 
 //listeners and such
 $("form#palindrome").submit(function(event){
-  var inputWord = ("input#inputWord").val();
-  var inputWordArray = inputWord.split("");
-  var cloneWordArray = inputwordArray.slice();
-  var reversedWordArray = cloneWordArray.reverse();
+  var inputString = $("input#userstring").val();
 
-  palindromeTester(inputWordArray, reversedWordArray);
+  var inputWordArray = inputString.split("");
+
+  var cheatingString = inputWordArray.toString("");
+
+
+  var cloneWordArray = inputWordArray.slice();
+  var reversedWordArray = cloneWordArray.reverse();
+  var reversedString = reversedWordArray.toString();
+
+  palindromeTester(cheatingString, reversedString);
+
 
   event.preventDefault();
+
 });
